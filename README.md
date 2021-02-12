@@ -21,8 +21,8 @@
 
   <a href='#Questions'>Questions</a>
   
-  Screenshot of React Calc
-  ![React Calc screenshot](./img/calcpic.png?)
+  Screenshot of ISDB
+  ![ISDB screenshot](./isdb_screenshot.png?)
 
 
   ## <a id='Installation' style='color:white;'>Installation</a>
