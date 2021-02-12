@@ -16,15 +16,14 @@ function addSauce() {
     document.getElementById("mustard").checked &&
     !document.getElementById("sauce").innerHTML.includes("Mustard")
   ) {
-    let sauce = document.getElementById("mustard").value;
     document.getElementById("sauce").innerHTML += "Mustard ";
   } else if (
     document.getElementById("sriracha").checked &&
     !document.getElementById("sauce").innerHTML.includes("Sriracha")
   ) {
-    let sauce = document.getElementById("sriracha").value;
     document.getElementById("sauce").innerHTML += "Sriracha ";
   }
+
   sandwichDetails[2] = document.getElementById("sauce").innerHTML;
 }
 
@@ -91,9 +90,18 @@ function addVeggies() {
 function saveSandwich() {
   sandwichDetails[0] = document.getElementById(`sandwich-name`).value;
 
+  let ingredientCount = 0;
+
+  for (let i = 0; i < sandwichDetails.length; i++) {
+    ingredientCount += sandwichDetails[i].split(" ").length - 1;
+    if (sandwichDetails[i].includes("Roast Beef")) {
+      ingredientCount -= 1;
+    }
+  }
+
   document.getElementById(
     "sandwich-description"
-  ).innerHTML = `Mmmm... the ${sandwichDetails[0]}, a sandwich made with ${sandwichDetails[1]}, some ${sandwichDetails[2]}, hearty ${sandwichDetails[3]}, ${sandwichDetails[4]}, and finally some ${sandwichDetails[5]}. Sounds Delicious!`;
+  ).innerHTML = `Mmmm... the ${sandwichDetails[0]}, a sandwich made with ${sandwichDetails[1]}, some ${sandwichDetails[2]}, hearty ${sandwichDetails[3]}, ${sandwichDetails[4]}, and finally some ${sandwichDetails[5]}. Sounds Delicious! You used ${ingredientCount} ingredients.`;
 
   console.log(document.getElementById("sandwich-description").innerHTML);
 }
