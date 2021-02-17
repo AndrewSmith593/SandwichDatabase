@@ -31,7 +31,7 @@
   ## <a id='How to use' style='color:white;'>How to use</a>
 Log in and go to the 'Create' page to make your own sandwich. Give it a name, and click 'Save Sandwich'. Navigate to 'Sandwich Menu' to view other sandwiches to try.  
   ## <a id='Deployment' style='color:white;'>Deployment</a>
-ISDB is currently deployed with a small number of features available, and is specifically deployed for testing purposes at this time. The current iteration is very much a work in progress/placeholder site. The "Create" page contains the majority of working code at this time.
+ISDB is currently deployed with a small number of features available for testing purposes at this time. The current iteration is a work in progress/placeholder site. The "Create" page contains the majority of functional code at this time.
 
   ## <a id='Contribution' style='color:white;'>Contribution</a>
   Fork the repo and submit potential changes for future development.
