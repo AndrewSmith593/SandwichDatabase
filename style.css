@@ -55,6 +55,9 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light {
   height: 50px;
   border: 1px solid #eff1ea;
   margin: 5px 0px 5px 0px;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  transform-origin: 5%;
 }
 
 #nutrition-facts {
@@ -148,3 +151,79 @@ tr:nth-child(even) {
 .formInput {
   margin: 10px;
 }
+
+
+/* SANDWICH COLLAPSE ANIMATION */
+/* * {
+  border: 1px solid red;
+}    
+
+body {
+  height: 700px;
+    width: 700px;
+      font: 1em sans-serif;
+      text-align: center;
+      
+  } */
+
+/* #container {
+  position: absolute;
+  top: 300px;
+  width:100%;
+  height: 1000px;
+    display: flex;
+  flex-direction: column;
+align-content: flex-end;
+  align-self: center;
+} */
+
+  .stage {
+      border-top: 3px solid #444;
+      display: flex;
+/*         height: 30px; */
+      width: 100%;
+  }
+  .box {
+      margin: 1px;
+      border: 1px solid black;
+      align-self: flex-end;
+      background-color: #F44336;
+      height: 5%;
+      margin: 0 auto 0 auto;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      transform-origin: 5%;
+      width: 30%;
+  }
+
+
+  .bounce-1 {
+      animation-name: bounce-1;
+      animation-timing-function: ease;
+  }
+  @keyframes bounce-1 {
+
+      0%  { transform: translateY(-150%); }
+      100% { transform: translateY(-0%); }
+  }
+
+  .bounce-2 {
+      animation-name: bounce-2;
+      animation-timing-function: ease;
+  }
+  @keyframes bounce-2 {
+
+      0%  { transform: translateY(-100%); }
+      100% { transform: translateY(-0%); }
+  }
+
+
+  .bounce-3 {
+      animation-name: bounce-3;
+      animation-timing-function: ease;
+  }
+  @keyframes bounce-3 {
+
+      0%  { transform: translateY(-33%); }
+      100% { transform: translateY(-0%); }
+  }
