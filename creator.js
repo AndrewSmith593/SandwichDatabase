@@ -28,23 +28,33 @@ function addSauce() {
 }
 
 function addProtein() {
+
+  let protein = document.createElement('PROTEIN')
+  protein.innerHTML = "I AM PROTEIN"
+  protein.classList.add("protein", "ingredient")
+  document.querySelector('#sandwichBox').appendChild(protein)
+
+
   if (
-    document.getElementById("ham").checked &&
-    !document.getElementById("protein").innerHTML.includes("Ham")
+    document.getElementById("ham").checked
+    //  &&
+    // !document.getElementById("protein").innerHTML.includes("Ham")
   ) {
-    document.getElementById("protein").innerHTML += "Ham ";
+    document.getElementsByClassName("protein").innerHTML += "Ham ";
   } else if (
-    document.getElementById("turkey").checked &&
-    !document.getElementById("protein").innerHTML.includes("Turkey")
+    document.getElementById("turkey").checked
+    //  &&
+    // !document.getElementsByClassName("protein").innerHTML.includes("Turkey")
   ) {
-    document.getElementById("protein").innerHTML += "Turkey ";
+    document.getElementsByClassName("protein").innerHTML += "Turkey ";
   } else if (
-    document.getElementById("roastBeef").checked &&
-    !document.getElementById("protein").innerHTML.includes("Roast Beef")
+    document.getElementById("roastBeef").checked
+    //  &&
+    // !document.getElementsByClassName("protein").innerHTML.includes("Roast Beef")
   ) {
-    document.getElementById("protein").innerHTML += "Roast Beef ";
+    document.getElementsByClassName("protein").innerHTML += "Roast Beef ";
   }
-  sandwichDetails[3] = document.getElementById("protein").innerHTML;
+  // sandwichDetails[3] = document.getElementById("protein").innerHTML;
 }
 
 function addCheese() {
@@ -102,6 +112,19 @@ function saveSandwich() {
   document.getElementById(
     "sandwich-description"
   ).innerHTML = `Mmmm... the ${sandwichDetails[0]}, a sandwich made with ${sandwichDetails[1]}, some ${sandwichDetails[2]}, hearty ${sandwichDetails[3]}, ${sandwichDetails[4]}, and finally some ${sandwichDetails[5]}. Sounds Delicious! You used ${ingredientCount} ingredients.`;
+
+/*
+when an ingredient is added, it will receive an ingredient number
+the ingredient numbers will start from the bottom of the sandwich
+when save button is clicked, the appropriate css class to position the ingredient will be applied
+there will be a function that loops ingredient Count times
+    this function will, 
+*/
+let proteinDiv = document.getElementsByClassName("protein")[0]
+
+
+proteinDiv.classList.add("bounce-1");
+
 
   console.log(document.getElementById("sandwich-description").innerHTML);
 }
