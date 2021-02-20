@@ -1,97 +1,105 @@
 let sandwichDetails = [];
 
-function makeIngredient(ingredientCategory, ingredientType){
+
+function makeIngredient(container, ingredientCategory, ingredientType){
   console.log(`makeingredient went off`)
   let ingredient = document.createElement("INGREDIENT");
   ingredient.classList.add(ingredientCategory, "ingredient");
   ingredient.innerHTML += ingredientType;
-  document.querySelector("#sandwichBox").appendChild(ingredient);
+  document.querySelector("#"+container).appendChild(ingredient);
   sandwichDetails.push(ingredient.innerHTML);
+  return ingredient;
 
 }
 
 
 function addBread() {
-  var bread = document.getElementById("bread-select").value;
-  document.getElementById("bread").innerHTML = bread;
-  sandwichDetails[1] = document.getElementById("bread").innerHTML;
+  var breadType = document.getElementById("bread-select").value;
+  makeIngredient("sandwichBox", "bread", breadType)
+  let breadBox = document.createElement("div")
+  breadBox.setAttribute("id", "breadBox")
+  document.querySelector("#sandwichBox").appendChild(breadBox);
+  makeIngredient("sandwichBox", "bread", breadType)
 }
 
 function addSauce() {
+let breadBox = document.getElementById("breadBox")
   if (
     document.getElementById("mayo").checked &&
     !sandwichDetails.includes("Mayo")
   ) {
-    makeIngredient("sauce", "Mayo")
+    breadBox.appendChild(makeIngredient("breadBox", "sauce", "Mayo"))
   } else if (
     document.getElementById("mustard").checked &&
     !sandwichDetails.includes("Mustard")
   ) {
-    makeIngredient("sauce", "Mustard")
+    breadBox.appendChild(makeIngredient("breadBox", "sauce", "Mustard"))
   } else if (
     document.getElementById("sriracha").checked &&
     !sandwichDetails.includes("Sriracha")
   ) {
-    makeIngredient("sauce", "Mustard")
+    breadBox.appendChild(makeIngredient("breadBox", "sauce", "Sriracha"))
   }
 }
 
 
 function addProtein() {
+  let breadBox = document.getElementById("breadBox")
   if (
     document.getElementById("ham").checked &&
     !sandwichDetails.includes("Ham")
   ) {
-    makeIngredient("protein", "Ham")
-
+    breadBox.appendChild(makeIngredient("breadBox", "protein", "Ham"))
   } else if (
     document.getElementById("turkey").checked &&
     !sandwichDetails.includes("Turkey")
   ) {
-    makeIngredient("protein", "Turkey")
+    breadBox.appendChild(makeIngredient("breadBox", "protein", "Turkey"))
   } else if (
     document.getElementById("roastBeef").checked &&
     !sandwichDetails.includes("Roast Beef")
   ) {
-    makeIngredient("protein", "Roast Beef")
+    breadBox.appendChild(makeIngredient("breadBox", "protein", "Roast Beef"))
   }
 }
 
 function addCheese() {
+  let breadBox = document.getElementById("breadBox")
   if (
     document.getElementById("cheddar").checked &&
     !sandwichDetails.includes("Cheddar")
   ) {
-    makeIngredient("cheese", "Cheddar")
+    breadBox.appendChild(makeIngredient("breadBox", "cheese", "Cheddar"))
   } else if (
     document.getElementById("swiss").checked &&
     !sandwichDetails.includes("Swiss")
   ) {
-    makeIngredient("cheese", "Swiss")
+    breadBox.appendChild(makeIngredient("breadBox", "cheese", "Swiss"))
   } else if (
     document.getElementById("provolone").checked &&
     !sandwichDetails.includes("Provolone")
   ) {
-    makeIngredient("cheese", "Provolone")
+    breadBox.appendChild(makeIngredient("breadBox", "cheese", "Provolone"))
   }
 }
 
 function addVeggies() {
+  let breadBox = document.getElementById("breadBox")
   if (
     document.getElementById("lettuce").checked &&
     !sandwichDetails.includes("Lettuce")
   ) {
-    makeIngredient("veggies", "Lettuce")
+    breadBox.appendChild(makeIngredient("breadBox", "veggies", "Lettuce"))
   } else if (
     document.getElementById("tomato").checked &&
     !sandwichDetails.includes("Tomato")
   ) {
-    makeIngredient("veggies", "Tomato")
+    breadBox.appendChild(makeIngredient("breadBox", "veggies", "Tomato"))
   } else if (
     document.getElementById("onion").checked &&
     !sandwichDetails.includes("Onion")
   ) {
-    makeIngredient("veggies", "Onion")
+    breadBox.appendChild(makeIngredient("breadBox", "veggies", "Onion"))
   }
 }
 
