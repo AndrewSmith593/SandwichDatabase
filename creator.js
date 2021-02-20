@@ -1,33 +1,5 @@
 let sandwichDetails = [];
 
-function addBread() {
-  var bread = document.getElementById("bread-select").value;
-  document.getElementById("bread").innerHTML = bread;
-  sandwichDetails[1] = document.getElementById("bread").innerHTML;
-}
-
-function addSauce() {
-  if (
-    document.getElementById("mayo").checked &&
-    !document.getElementById("sauce").innerHTML.includes("Mayo")
-  ) {
-    document.getElementById("sauce").innerHTML += "Mayo ";
-  } else if (
-    document.getElementById("mustard").checked &&
-    !document.getElementById("sauce").innerHTML.includes("Mustard")
-  ) {
-    document.getElementById("sauce").innerHTML += "Mustard ";
-  } else if (
-    document.getElementById("sriracha").checked &&
-    !document.getElementById("sauce").innerHTML.includes("Sriracha")
-  ) {
-    document.getElementById("sauce").innerHTML += "Sriracha ";
-  }
-
-  sandwichDetails[2] = document.getElementById("sauce").innerHTML;
-}
-// ========
-
 function makeIngredient(ingredientCategory, ingredientType){
   console.log(`makeingredient went off`)
   let ingredient = document.createElement("INGREDIENT");
@@ -37,22 +9,35 @@ function makeIngredient(ingredientCategory, ingredientType){
   sandwichDetails.push(ingredient.innerHTML);
 
 }
-// ========
+
+
+function addBread() {
+  var bread = document.getElementById("bread-select").value;
+  document.getElementById("bread").innerHTML = bread;
+  sandwichDetails[1] = document.getElementById("bread").innerHTML;
+}
+
+function addSauce() {
+  if (
+    document.getElementById("mayo").checked &&
+    !sandwichDetails.includes("Mayo")
+  ) {
+    makeIngredient("sauce", "Mayo")
+  } else if (
+    document.getElementById("mustard").checked &&
+    !sandwichDetails.includes("Mustard")
+  ) {
+    makeIngredient("sauce", "Mustard")
+  } else if (
+    document.getElementById("sriracha").checked &&
+    !sandwichDetails.includes("Sriracha")
+  ) {
+    makeIngredient("sauce", "Mustard")
+  }
+}
+
 
 function addProtein() {
-
-
-
-// function makeProtein(proteinType){
-//   let protein = document.createElement("PROTEIN");
-//   protein.classList.add("protein", "ingredient");
-//   protein.innerHTML += proteinType;
-//   document.querySelector("#sandwichBox").appendChild(protein);
-//   sandwichDetails.push(protein.innerHTML);
-// }
-
-
-
   if (
     document.getElementById("ham").checked &&
     !sandwichDetails.includes("Ham")
@@ -73,51 +58,41 @@ function addProtein() {
 }
 
 function addCheese() {
-  let cheese = document.createElement("CHEESE");
-  cheese.innerHTML = "I AM CHEESE";
-  cheese.classList.add("cheese", "ingredient");
-  document.querySelector("#sandwichBox").appendChild(cheese);
-
   if (
-    document.getElementById("cheddar").checked
-    // &&
-    // !document.getElementById("cheese").innerHTML.includes("Cheddar")
+    document.getElementById("cheddar").checked &&
+    !sandwichDetails.includes("Cheddar")
   ) {
-    document.getElementsByClassName("cheese").innerHTML += "Cheddar ";
+    makeIngredient("cheese", "Cheddar")
   } else if (
-    document.getElementById("swiss").checked
-    // &&
-    // !document.getElementById("cheese").innerHTML.includes("Swiss")
+    document.getElementById("swiss").checked &&
+    !sandwichDetails.includes("Swiss")
   ) {
-    document.getElementsByClassName("cheese").innerHTML += "Swiss ";
+    makeIngredient("cheese", "Swiss")
   } else if (
-    document.getElementById("provolone").checked
-    // &&
-    // !document.getElementById("cheese").innerHTML.includes("Provolone")
+    document.getElementById("provolone").checked &&
+    !sandwichDetails.includes("Provolone")
   ) {
-    document.getElementsByClassName("cheese").innerHTML += "Provolone ";
+    makeIngredient("cheese", "Provolone")
   }
-  // sandwichDetails[4] = document.getElementById("cheese").innerHTML;
 }
 
 function addVeggies() {
   if (
     document.getElementById("lettuce").checked &&
-    !document.getElementById("veggies").innerHTML.includes("Lettuce")
+    !sandwichDetails.includes("Lettuce")
   ) {
-    document.getElementById("veggies").innerHTML += "Lettuce ";
+    makeIngredient("veggies", "Lettuce")
   } else if (
     document.getElementById("tomato").checked &&
-    !document.getElementById("veggies").innerHTML.includes("Tomato")
+    !sandwichDetails.includes("Tomato")
   ) {
-    document.getElementById("veggies").innerHTML += "Tomato ";
+    makeIngredient("veggies", "Tomato")
   } else if (
     document.getElementById("onion").checked &&
-    !document.getElementById("veggies").innerHTML.includes("Onion")
+    !sandwichDetails.includes("Onion")
   ) {
-    document.getElementById("veggies").innerHTML += "Onion ";
+    makeIngredient("veggies", "Onion")
   }
-  sandwichDetails[5] = document.getElementById("veggies").innerHTML;
 }
 
 function saveSandwich() {
