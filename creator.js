@@ -29,52 +29,59 @@ function addSauce() {
 
 function addProtein() {
 
-  let protein = document.createElement('PROTEIN')
-  protein.innerHTML = "I AM PROTEIN"
-  protein.classList.add("protein", "ingredient")
-  document.querySelector('#sandwichBox').appendChild(protein)
-
+function makeProtein(proteinType){
+  let protein = document.createElement("PROTEIN");
+  protein.classList.add("protein", "ingredient");
+  protein.innerHTML += proteinType;
+  document.querySelector("#sandwichBox").appendChild(protein);
+  sandwichDetails.push(protein.innerHTML);
+}
 
   if (
-    document.getElementById("ham").checked
-    //  &&
-    // !document.getElementById("protein").innerHTML.includes("Ham")
+    document.getElementById("ham").checked &&
+    !sandwichDetails.includes("Ham")
   ) {
-    document.getElementsByClassName("protein").innerHTML += "Ham ";
+    makeProtein("Ham")
+
   } else if (
-    document.getElementById("turkey").checked
-    //  &&
-    // !document.getElementsByClassName("protein").innerHTML.includes("Turkey")
+    document.getElementById("turkey").checked &&
+    !sandwichDetails.includes("Turkey")
   ) {
-    document.getElementsByClassName("protein").innerHTML += "Turkey ";
+    makeProtein("Turkey")
   } else if (
-    document.getElementById("roastBeef").checked
-    //  &&
-    // !document.getElementsByClassName("protein").innerHTML.includes("Roast Beef")
+    document.getElementById("roastBeef").checked &&
+    !sandwichDetails.includes("Roast Beef")
   ) {
-    document.getElementsByClassName("protein").innerHTML += "Roast Beef ";
+    makeProtein("Roast Beef")
   }
-  // sandwichDetails[3] = document.getElementById("protein").innerHTML;
 }
 
 function addCheese() {
+  let cheese = document.createElement("CHEESE");
+  cheese.innerHTML = "I AM CHEESE";
+  cheese.classList.add("cheese", "ingredient");
+  document.querySelector("#sandwichBox").appendChild(cheese);
+
   if (
-    document.getElementById("cheddar").checked &&
-    !document.getElementById("cheese").innerHTML.includes("Cheddar")
+    document.getElementById("cheddar").checked
+    // &&
+    // !document.getElementById("cheese").innerHTML.includes("Cheddar")
   ) {
-    document.getElementById("cheese").innerHTML += "Cheddar ";
+    document.getElementsByClassName("cheese").innerHTML += "Cheddar ";
   } else if (
-    document.getElementById("swiss").checked &&
-    !document.getElementById("cheese").innerHTML.includes("Swiss")
+    document.getElementById("swiss").checked
+    // &&
+    // !document.getElementById("cheese").innerHTML.includes("Swiss")
   ) {
-    document.getElementById("cheese").innerHTML += "Swiss ";
+    document.getElementsByClassName("cheese").innerHTML += "Swiss ";
   } else if (
-    document.getElementById("provolone").checked &&
-    !document.getElementById("cheese").innerHTML.includes("Provolone")
+    document.getElementById("provolone").checked
+    // &&
+    // !document.getElementById("cheese").innerHTML.includes("Provolone")
   ) {
-    document.getElementById("cheese").innerHTML += "Provolone ";
+    document.getElementsByClassName("cheese").innerHTML += "Provolone ";
   }
-  sandwichDetails[4] = document.getElementById("cheese").innerHTML;
+  // sandwichDetails[4] = document.getElementById("cheese").innerHTML;
 }
 
 function addVeggies() {
@@ -113,18 +120,25 @@ function saveSandwich() {
     "sandwich-description"
   ).innerHTML = `Mmmm... the ${sandwichDetails[0]}, a sandwich made with ${sandwichDetails[1]}, some ${sandwichDetails[2]}, hearty ${sandwichDetails[3]}, ${sandwichDetails[4]}, and finally some ${sandwichDetails[5]}. Sounds Delicious! You used ${ingredientCount} ingredients.`;
 
-/*
+  /*
 when an ingredient is added, it will receive an ingredient number
 the ingredient numbers will start from the bottom of the sandwich
 when save button is clicked, the appropriate css class to position the ingredient will be applied
 there will be a function that loops ingredient Count times
     this function will, 
 */
-let proteinDiv = document.getElementsByClassName("protein")[0]
 
+  // for (let i = 0; i < array.length; i++) {
+  //   const element = array[i];
 
-proteinDiv.classList.add("bounce-1");
+  // }
+  let ingredientDiv = document.getElementsByClassName("ingredient")[0];
+  let ingredientDiv2 = document.getElementsByClassName("ingredient")[1];
+  // let proteinDiv3 = document.getElementsByClassName("protein")[2]
 
+  ingredientDiv.classList.add("bounce-1");
+  ingredientDiv2.classList.add("bounce-2");
+  // proteinDiv3.classList.add("bounce-1");
 
   console.log(document.getElementById("sandwich-description").innerHTML);
 }

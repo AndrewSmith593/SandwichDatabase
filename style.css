@@ -212,7 +212,7 @@ align-content: flex-end;
 
 .bounce-2 {
   animation-name: bounce-2;
-  animation-iteration-count: 2;
+  animation-iteration-count: 1;
   animation-timing-function: ease;
 }
 @keyframes bounce-2 {
