@@ -191,7 +191,8 @@ align-content: flex-end;
       height: 5%;
       margin: 0 auto 0 auto;
       animation-duration: 2s;
-      animation-iteration-count: infinite;
+      animation-iteration-count: 1;
+      /* animation-name: bounce-1, bounce-2, bounce-3; */
       transform-origin: 5%;
       width: 30%;
   }
@@ -199,31 +200,34 @@ align-content: flex-end;
 
   .bounce-1 {
       animation-name: bounce-1;
+      animation-iteration-count: 1;
       animation-timing-function: ease;
   }
   @keyframes bounce-1 {
 
-      0%  { transform: translateY(-150%); }
+      0%  { transform: translateY(-600%); }
       100% { transform: translateY(-0%); }
   }
 
   .bounce-2 {
       animation-name: bounce-2;
+      animation-iteration-count: 1;
       animation-timing-function: ease;
   }
   @keyframes bounce-2 {
 
-      0%  { transform: translateY(-100%); }
+      0%  { transform: translateY(-400%); }
       100% { transform: translateY(-0%); }
   }
 
 
   .bounce-3 {
       animation-name: bounce-3;
+      animation-iteration-count: 1;
       animation-timing-function: ease;
   }
   @keyframes bounce-3 {
 
-      0%  { transform: translateY(-33%); }
+      0%  { transform: translateY(-200%); }
       100% { transform: translateY(-0%); }
   }
