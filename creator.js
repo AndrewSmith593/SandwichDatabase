@@ -26,33 +26,49 @@ function addSauce() {
 
   sandwichDetails[2] = document.getElementById("sauce").innerHTML;
 }
+// ========
+
+function makeIngredient(ingredientCategory, ingredientType){
+  console.log(`makeingredient went off`)
+  let ingredient = document.createElement("INGREDIENT");
+  ingredient.classList.add(ingredientCategory, "ingredient");
+  ingredient.innerHTML += ingredientType;
+  document.querySelector("#sandwichBox").appendChild(ingredient);
+  sandwichDetails.push(ingredient.innerHTML);
+
+}
+// ========
 
 function addProtein() {
 
-function makeProtein(proteinType){
-  let protein = document.createElement("PROTEIN");
-  protein.classList.add("protein", "ingredient");
-  protein.innerHTML += proteinType;
-  document.querySelector("#sandwichBox").appendChild(protein);
-  sandwichDetails.push(protein.innerHTML);
-}
+
+
+// function makeProtein(proteinType){
+//   let protein = document.createElement("PROTEIN");
+//   protein.classList.add("protein", "ingredient");
+//   protein.innerHTML += proteinType;
+//   document.querySelector("#sandwichBox").appendChild(protein);
+//   sandwichDetails.push(protein.innerHTML);
+// }
+
+
 
   if (
     document.getElementById("ham").checked &&
     !sandwichDetails.includes("Ham")
   ) {
-    makeProtein("Ham")
+    makeIngredient("protein", "Ham")
 
   } else if (
     document.getElementById("turkey").checked &&
     !sandwichDetails.includes("Turkey")
   ) {
-    makeProtein("Turkey")
+    makeIngredient("protein", "Turkey")
   } else if (
     document.getElementById("roastBeef").checked &&
     !sandwichDetails.includes("Roast Beef")
   ) {
-    makeProtein("Roast Beef")
+    makeIngredient("protein", "Roast Beef")
   }
 }
 
